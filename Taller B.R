@@ -27,10 +27,11 @@ data_deso_cabe_2020=read.csv2('data/input/2020/Cabecera - Desocupados.csv')
 data_ft_cabe_2020=read.csv2('data/input/2020/Cabecera - Fuerza de trabajo.csv')
 data_carac_cabe_2020=read.csv2('data/input/2020/Cabecera - Caracteristicas generales (Personas).csv')
 
-
-
-
-
+data_ocu_res_2020=read.csv2('data/input/2020/Resto - Ocupados.csv')
+data_inac_res_2020=read.csv2('data/input/2020/Resto - Inactivos.csv')
+data_deso_res_2020=read.csv2('data/input/2020/Resto - Desocupados.csv')
+data_ft_res_2020=read.csv2('data/input/2020/Resto - Fuerza de trabajo.csv')
+data_carac_res_2020=read.csv2('data/input/2020/Resto - Caracteristicas generales (Personas).csv')
 
 
 
