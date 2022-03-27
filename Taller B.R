@@ -309,39 +309,6 @@ nacional=plyr::rbind.fill(cabecera,resto)
 
 
 
-#variable 
-nacional=mutate(nacional,cabecera=ifelse(test=ESC,yes=1,no=0))
-nacional=mutate(nacional,resto=ifelse(test=INGLABO,yes=1,no=0))
-
-
-
-
-
-
-
-nacional=mutate(nacional,cabecera=ifelse(test=(año=AÑO),yes=1,no=0))
-
-
-
-
-
-
-
-
-
-
-
-#variable 
-cabecera=mutate(cabecera,cabecera=ifelse(test=(año=AÑO),yes=1,no=0))
-cabecera=mutate(cabecera,cabecera=nchar(AÑO))
-
-
-
-
-
-
-
-
 
 
 
