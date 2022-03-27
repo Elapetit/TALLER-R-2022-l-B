@@ -271,7 +271,7 @@ data_ocu_inac_deso_ft_carac_r_2019=full_join(x=data_ocu_inac_deso_ft_r_2019,y=da
 data_res_2019=data_ocu_inac_deso_ft_carac_r_2019
 
 #Variable observaciones de cada año
-data_res_2019=mutate(data_res_2019,año=2019)
+data_res_2019=mutate(data_res_2019,Año=2019)
 
 #2020
 #Resto
@@ -294,12 +294,16 @@ data_ocu_inac_deso_ft_carac_r_2020=full_join(x=data_ocu_inac_deso_ft_r_2020,y=da
 data_res_2020=data_ocu_inac_deso_ft_carac_r_2020
 
 #Variable observaciones de cada año
-data_res_2020=mutate(data_res_2020,AÑO=2020)
+data_res_2020=mutate(data_res_2020,Añoo=2020)
 
 #Modulo que contiene resto de ambos años:
 resto=plyr::rbind.fill(data_res_2019,data_res_2020)
 
 #1.3. UNA BASE NACIONAL
+
+#variable 
+
+
 nacional=plyr::rbind.fill(cabecera,resto)
 
 
