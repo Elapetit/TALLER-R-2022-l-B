@@ -301,15 +301,11 @@ resto=plyr::rbind.fill(data_res_2019,data_res_2020)
 
 #1.3. UNA BASE NACIONAL
 
-#variable 
-cabecera=mutate(cabecera,cabecera='cabecera')
-resto=mutate(resto,resto='resto')
+#Variable 
+cabecera=mutate(cabecera,obs_urb='cabecera')
+resto=mutate(resto,obs_rur='resto')
 
 nacional=plyr::rbind.fill(cabecera,resto)
-
-
-
-
 
 
 
