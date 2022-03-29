@@ -307,6 +307,54 @@ resto=mutate(resto,obs_rur='resto')
 
 nacional=plyr::rbind.fill(cabecera,resto)
 
+#1.4. DESCRIPTIVAS
+
+#Cabecera
+#Tabla No.Ocupados cabecera 2019
+No_ocu_cabe_2019=nacional%>%group_by(año,dpto,P6020,obs_urb,P6040)%>% summarise(No.ocupados=vc_ocu_cabe_2019)
+
+#Tabla No.Desocupados cabecera 2019
+No_deso_cabe_2019=nacional%>%group_by(año,dpto,P6020,obs_urb,P6040)%>% summarise(No.desocupados=vc_deso_cabe_2019)
+
+Ing_lab_pro_cabe_2019=nacional%>%group_by(año,dpto,P6020,obs_urb,P6040)%>% summarise(Ing_pro=mean(INGLABO))
+#No es posible extraer los ingresos laborales promedio dado que la variable INGLABO no aparece registrado en la base de datos de ocupados, ni en las bases de datos restantes
+
+#Tabla No.Ocupados cabecera 2020
+No_ocu_cabe_2020=nacional%>%group_by(AÑO,DPTO,P6020,obs_urb,P6040)%>% summarise(No.ocupados=vc_ocu_cabe_2020)
+
+#Tabla No.Desocupados cabecera 2020
+No_deso_cabe_2020=nacional%>%group_by(AÑO,DPTO,P6020,obs_urb,P6040)%>% summarise(No.desocupados=vc_deso_cabe_2020)
+
+#Tabla de ingresos laborales promedio cabecera 2020
+Ing_lab_pro_cabe_2020=nacional%>%group_by(AÑO,DPTO,P6020,obs_urb,P6040)%>% summarise(Ing_pro=mean(INGLABO))
+
+#Resto
+#Tabla No.Ocupados resto 2019
+No_ocu_res_2019=nacional%>%group_by(Año,DPTO,P6020,obs_rur,P6040)%>% summarise(No.ocupados=vc_ocu_res_2019)
+
+#Tabla No.Desocupados resto 2019
+No_deso_res_2019=nacional%>%group_by(Año,DPTO,P6020,obs_rur,P6040)%>% summarise(No.desocupados=vc_deso_res_2019)
+
+#Tabla de ingresos laborales promedio resto 2019
+Ing_lab_pro_res_2019=nacional%>%group_by(Año,DPTO,P6020,obs_rur,P6040)%>% summarise(Ing_pro=mean(INGLABO))
+
+#Tabla No.Ocupados resto 2020
+No_ocu_res_2020=nacional%>%group_by(Añoo,DPTO,P6020,obs_rur,P6040)%>% summarise(No.ocupados=vc_ocu_res_2020)
+
+#Tabla No.Desocupados resto 2020
+No_deso_res_2020=nacional%>%group_by(Añoo,DPTO,P6020,obs_rur,P6040)%>% summarise(No.desocupados=vc_deso_res_2020)
+
+#Tabla de ingresos laborales promedio resto 2020
+Ing_lab_pro_res_2020=nacional%>%group_by(Añoo,DPTO,P6020,obs_rur,P6040)%>% summarise(Ing_pro=mean(INGLABO))
+
+
+
+
+
+
+
+
+
 
 
 
