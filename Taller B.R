@@ -7,7 +7,7 @@
 #1.1. IMPORTAR BASES DE DATOS  
 
 #1. Importar y filtrar de cada base de datos las variables: directorio, secuencia_p, orden, P6020, P6040, P6030S1, P6440, P6450, P6920, INGLABO, DPTO, fex_c_2011, ESC, MES y P6050
-pacman::p_load(tidyverse,haven)
+pacman::p_load(tidyverse,haven,ggplot2)
 
 #2019
 #Cabecera
@@ -309,6 +309,8 @@ nacional=plyr::rbind.fill(cabecera,resto)
 
 #1.4. DESCRIPTIVAS
 
+#Tablas
+
 #Cabecera
 #Tabla No.Ocupados cabecera 2019
 No_ocu_cabe_2019=nacional%>%group_by(año,dpto,P6020,obs_urb,P6040)%>% summarise(No.ocupados=vc_ocu_cabe_2019)
@@ -347,8 +349,21 @@ No_deso_res_2020=nacional%>%group_by(Añoo,DPTO,P6020,obs_rur,P6040)%>% summaris
 #Tabla de ingresos laborales promedio resto 2020
 Ing_lab_pro_res_2020=nacional%>%group_by(Añoo,DPTO,P6020,obs_rur,P6040)%>% summarise(Ing_pro=mean(INGLABO))
 
+#Graficos
 
+#Ingresos laborales promedio
 
+#cabecera 2019
+#Ing_lab_pro_cabe_2019 no posee grafico porque no posee la variable INGLABO
+
+#cabecera 2020
+ggplot()+geom_histogram(data=Ing_lab_pro_cabe_2020,aes(x=Ing_pro))+theme_minimal()
+
+#resto 2019
+ggplot()+geom_histogram(data=Ing_lab_pro_res_2019,aes(x=Ing_pro))+theme_light()
+
+#resto 2020
+ggplot()+geom_histogram(data=Ing_lab_pro_res_2020,aes(x=Ing_pro))+theme_classic()
 
 
 
