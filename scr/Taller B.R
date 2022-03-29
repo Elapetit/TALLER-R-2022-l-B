@@ -1,12 +1,10 @@
 #Taller B
-#Elaborado por: Gabriela Cucunuba
-#Colaborador:
-#Fecha de elaboracion:
-#Fecha ultima modificacion:
+#Elaborado por: Gabriela Cucunuba Correa
+#Version de R: R version 4.1.1
 
 #1.1. IMPORTAR BASES DE DATOS  
 
-#1. Importar y filtrar de cada base de datos las variables: directorio, secuencia_p, orden, P6020, P6040, P6030S1, P6440, P6450, P6920, INGLABO, DPTO, fex_c_2011, ESC, MES y P6050
+#Importar y filtrar de cada base de datos las variables: directorio, secuencia_p, orden, P6020, P6040, P6030S1, P6440, P6450, P6920, INGLABO, DPTO, fex_c_2011, ESC, MES y P6050
 pacman::p_load(tidyverse,haven,ggplot2)
 
 #2019
@@ -97,7 +95,7 @@ names(data_carac_res_2020) #conocer los nombres de las variables, para el caso, 
 
 #Se añaden las variables P6800, P7450, P7250, P6250, P388, INI con el fin de realizar las variables categoricas
 
-#2. Elaboracion de variables categoricas para ocupados, inactivos, desocupados y fuerza de trabajo
+#Elaboracion de variables categoricas para ocupados, inactivos, desocupados y fuerza de trabajo
 
 #2019
 #Cabecera
@@ -171,7 +169,7 @@ data_ft_res_2020=mutate(data_ft_res_2020,vc_ft_res_2020=ifelse(test=P6250,yes=1,
 #Generamos una variable de la base de datos denominada vc_ft_res_2020 que contara con el siguiente condicional: si la pregunta P6250 es encontrada en el dfm indica si (1), en caso contrario indica no (0)
 #Tomando como base la pregunta P6250 que anota la realizacion de alguna actividad remunerada por horas, describe las actividades realizadas por la fuerza de trabajo para el caso de las zonas rurales
 
-#3. Listas
+#Listas
 
 #2019
 lista_1=list()
@@ -200,6 +198,8 @@ lista_2[[9]]=data_ft_res_2020
 lista_2[[10]]=data_carac_res_2020
 
 #1.2. UNIR DATOS
+
+#Unir por columnas
 
 #2019
 #Cabecera
@@ -247,8 +247,12 @@ data_cabe_2020=data_ocu_inac_deso_ft_carac_c_2020
 #Variable observaciones de cada año
 data_cabe_2020=mutate(data_cabe_2020,AÑO=2020)
 
+#Unir por filas
+
 #Modulo que contiene cabecera de ambos años:
 cabecera=plyr::rbind.fill(data_cabe_2019,data_cabe_2020)
+
+#Unir por columnas
 
 #2019
 #Resto
@@ -296,15 +300,18 @@ data_res_2020=data_ocu_inac_deso_ft_carac_r_2020
 #Variable observaciones de cada año
 data_res_2020=mutate(data_res_2020,Añoo=2020)
 
+#Unir por filas
+
 #Modulo que contiene resto de ambos años:
 resto=plyr::rbind.fill(data_res_2019,data_res_2020)
 
 #1.3. UNA BASE NACIONAL
 
-#Variable 
+#Variable identificar observaciones urbanas y observaciones rurales
 cabecera=mutate(cabecera,obs_urb='cabecera')
 resto=mutate(resto,obs_rur='resto')
 
+#Modulo que contiene cabecera y resto denominado nacional
 nacional=plyr::rbind.fill(cabecera,resto)
 
 #1.4. DESCRIPTIVAS
@@ -357,19 +364,19 @@ Ing_lab_pro_res_2020=nacional%>%group_by(Añoo,DPTO,P6020,obs_rur,P6040)%>% summ
 #Ing_lab_pro_cabe_2019 no posee grafico porque no posee la variable INGLABO
 
 #cabecera 2020
-ggplot()+geom_histogram(data=Ing_lab_pro_cabe_2020,aes(x=Ing_pro))+theme_minimal()
+a=ggplot()+geom_histogram(data=Ing_lab_pro_cabe_2020,aes(x=Ing_pro))+theme_minimal()
 
 #resto 2019
-ggplot()+geom_histogram(data=Ing_lab_pro_res_2019,aes(x=Ing_pro))+theme_light()
+b=ggplot()+geom_histogram(data=Ing_lab_pro_res_2019,aes(x=Ing_pro))+theme_light()
 
 #resto 2020
-ggplot()+geom_histogram(data=Ing_lab_pro_res_2020,aes(x=Ing_pro))+theme_classic()
+c=ggplot()+geom_histogram(data=Ing_lab_pro_res_2020,aes(x=Ing_pro))+theme_classic()
 
-
-
-
-
-
+#1.5. EXPORTAR 
+saveRDS(object=nacional,file="data/output/nacional.rds")
+ggsave(plot=a,file="views/ingresos laborales promedio de cabecera 2020.jpeg")
+ggsave(plot=b,file="views/ingresos laborales promedio de resto 2019.jpeg")
+ggsave(plot=c,file="views/ingresos laborales promedio de resto 2020.jpeg")
 
 
 
