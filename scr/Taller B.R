@@ -5,7 +5,7 @@
 #1.1. IMPORTAR BASES DE DATOS  
 
 #Importar y filtrar de cada base de datos las variables: directorio, secuencia_p, orden, P6020, P6040, P6030S1, P6440, P6450, P6920, INGLABO, DPTO, fex_c_2011, ESC, MES y P6050
-pacman::p_load(tidyverse,haven,ggplot2)
+pacman::p_load(tidyverse,haven,ggplot2,TinyTex)
 
 #2019
 #Cabecera

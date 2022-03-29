@@ -1,0 +1,31 @@
+---
+title: "Taller B"
+author: "Gabriela Cucunuba Correa"
+date: "28/3/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+El análisis gráfico de los ingresos laborales promedio para el caso de las zonas urbanas (cabecera) y las zonas rurales (resto), resulta ser un factor importante al momento de examinar a los agentes ocupados. Es por lo anterior, que las siguientes gráficas, describen el comportaiento de los ingresos de los trabajadores de las diferentes zonas del país en promedio, haciendo hincapié en que el promedio indica la centralización de una variable, en particular, del ingreso. 
+
+Cabe destacar que, para cada zona se encuentran disponibles dos años de análisis, siendo 2019 y 2020 respectivamente. Sin embargo, en específico para cabecera en el año 2019, la base de datos no expresó indicio alguno de esta variable, por lo que para este año y zona no se analizará la gráfica respectiva.
+
+##Ingresos laborales promedio de cabecera 2020
+<center>![](views/ingresos laborales promedio de cabecera 2020.jpeg)<center>
+
+Según la gráfica anterior, los ingresos laborales en promedio tendieron a ser superiores a 400 unidades monetarias para las zonas urbanas, un ingreso preocupante, dado que reportaba solo el 50% del salario mínimo del año, reportado en 877.803 pesos.
+Es posible que estos resultados conlleven a los posibles planteamientos de algunas hipóesis. Una de estas podría ser: la capacidad adquisitiva de estos trabajadores pudo verse afectada, lo cual repercutiría de manera inmediata en el bienestar, incrementando las posibilidades de sumirse en la pobreza. 
+
+##Ingresos laborales promedio de resto 2019
+<center>![](views/ingresos laborales promedio de resto 2019.jpeg)<center>
+
+Teniendo en cuenta esta gráfica, se observa la tendencia de los ingresos laborales promedios hacia 600 unidades monetarias para las zonas rurales, una suma aún más cercana al salario mínimo del año reportado en 828.211 pesos. A pesar de ello, estos ingresos promedios continúan por debajo de este factor, por lo que es necesario que el salario de estos trabajadores se beneficie para alejar a los ocupados de los niveles de pobreza y garantizar un bienestar económico en general.
+
+##Ingresos laborales promedio de resto 2020
+<center>![](views/ingresos laborales promedio de resto 2020.jpeg)<center>
+
+Para el año 2020, los ingresos laborales promedio reflejaron la misma tendencia del año inmediatamente anterior, lo cual, aparta nuevamente estos ingresos del salario registrado para el año de 877.803 pesos en las zonas rurales, que en los distintos plazos, podría continuar afectando a la beneficencia de los ocupados, siendo el ingreso un elemento determinante para la calidad de vida de este grupo de agentes económicos.
